@@ -1,0 +1,30 @@
+// ---------------------------------------------------------------------------
+// bounce
+
+@mixin animate-bounce($class: $default-animation-class-mode) {
+  $name: bounce;
+  @include keyframes($name) {
+    0% {
+      @include translateY(0); 
+    }
+    20% {
+      @include translateY(0); 
+    }
+    40% {
+      @include translateY(-30px); 
+    }
+    50% {
+      @include translateY(0); 
+    }
+    60% {
+      @include translateY(-15px); 
+    }
+    80% {
+      @include translateY(0); 
+    }
+    100% {
+      @include translateY(0); 
+    } 
+  }
+  @include animation-class($name, $class) {}
+}

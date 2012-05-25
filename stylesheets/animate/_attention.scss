@@ -1,0 +1,35 @@
+// ---------------------------------------------------------------------------
+// imports
+
+@import "flash";
+@import "bounce";
+@import "shake";
+@import "tada";
+@import "swing";
+@import "wobble";
+@import "pulse";
+@import "wiggle";
+
+// ---------------------------------------------------------------------------
+// attention [ flash | bounce | shake | tada | 
+//             swing | wobble | pulse | wiggle ]
+
+@mixin animate-attention($sub: all, $class: $default-animation-class-mode) {
+  $sub      : compact($sub);
+  $flash    : yepnope($sub, all flash);
+  $bounce   : yepnope($sub, all bounce);
+  $shake    : yepnope($sub, all shake);
+  $tada     : yepnope($sub, all tada);
+  $swing    : yepnope($sub, all swing);
+  $wobble   : yepnope($sub, all wobble);
+  $pulse    : yepnope($sub, all pulse);
+  $wiggle   : yepnope($sub, all wiggle);
+  @if $flash    { @include animate-flash    ($class); } 
+  @if $bounce   { @include animate-bounce   ($class); } 
+  @if $shake    { @include animate-shake    ($class); } 
+  @if $tada     { @include animate-tada     ($class); } 
+  @if $swing    { @include animate-swing    ($class); } 
+  @if $wobble   { @include animate-wobble   ($class); } 
+  @if $pulse    { @include animate-pulse    ($class); } 
+  @if $wiggle   { @include animate-wiggle   ($class); } 
+}

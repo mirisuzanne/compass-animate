@@ -1,0 +1,27 @@
+// ---------------------------------------------------------------------------
+// swing
+
+@mixin animate-swing($class: $default-animation-class-mode) {
+  $name: swing;
+  @include keyframes($name) {
+    20%, 40%, 60%, 80%, 100% {
+      @include transform-origin(top center); 
+    }
+    20% {
+      @include rotate(15deg); 
+    }
+    40% {
+      @include rotate(-10deg); 
+    }
+    60% {
+      @include rotate(5deg); 
+    }
+    80% {
+      @include rotate(-5deg); 
+    }
+    100% {
+      @include rotate(0deg); 
+    } 
+  }
+  @include animation-class($name, $class) {}
+}
