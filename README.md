@@ -5,8 +5,15 @@ This is the new home for
 Eric Meyer's Compass port of
 [animate.css][animate]
 by [Dan Eden][dan].
+It is splitting off from
+[compass-animation][ca]
+because the majority of that plugin
+has moved into [Compass 0.13][c13].
+This plugin is for people on the Compass edge,
+while that plugin remains useful 
+to people who are still using Compass 0.12.
 
-This plugin requires
+Compass Animate requires
 Compass 0.13 (currently in alpha).
 
 ```bash
@@ -25,36 +32,8 @@ gem install compass-animate
 
 [animate]: http://daneden.me/animate/
 [dan]: http://daneden.me/
-
-## Animations
-
-This plugin includes the following animations:
-
-- Attention seekers
-  - flash, bounce, shake, tada, swing, wobble, wiggle, pulse
-- Flippers (currently Webkit, Firefox, & IE10 only)
-  - flip, flipInX, flipOutX, flipInY, flipOutY
-- Fading entrances
-  - fadeIn, fadeInUp, fadeInDown, fadeInLeft, fadeInRight, 
-    fadeInUpBig, fadeInDownBig, fadeInLeftBig, fadeInRightBig
-- Fading exits
-  - fadeOut, fadeOutUp, fadeOutDown, fadeOutLeft, fadeOutRight,
-    fadeOutUpBig, fadeOutDownBig, fadeOutLeftBig, fadeOutRightBig
-- Bouncing entrances
-  - bounceIn, bounceInDown, bounceInUp, bounceInLeft, bounceInRight
-- Bouncing exits
-  - bounceOut, bounceOutDown, bounceOutUp, 
-    bounceOutLeft, bounceOutRight
-- Rotating entrances
-  - rotateIn, rotateInDownLeft, rotateInDownRight, 
-    rotateInUpLeft, rotateInUpRight
-- Rotating exits
-  - rotateOut, rotateOutDownLeft, rotateOutDownRight, 
-    rotateOutUpLeft, rotateOutUpRight
-- Lightspeed
-  - lightSpeedIn, lightSpeedOut
-- Specials
-  - hinge, rollIn, rollOut
+[ca]: https://github.com/ericam/compass-animation
+[c13]: http://beta.compass-style.org/reference/compass/css3/animation/
 
 ## Usage
 
@@ -119,3 +98,42 @@ Now you have the named keyframes
 for the "flash" animation
 and a class name that you can use in your HTML
 or extend with Sass.
+
+## Animations
+
+This plugin includes the following animations:
+
+**Attention seekers**
+- flash, bounce, shake, tada, swing, wobble, wiggle, pulse
+
+**Flippers** (currently Webkit, Firefox, & IE10 only)
+- flip, flipInX, flipOutX, flipInY, flipOutY
+
+**Fading entrances**
+- fadeIn, fadeInUp, fadeInDown, fadeInLeft, fadeInRight, 
+  fadeInUpBig, fadeInDownBig, fadeInLeftBig, fadeInRightBig
+
+**Fading exits**
+- fadeOut, fadeOutUp, fadeOutDown, fadeOutLeft, fadeOutRight,
+  fadeOutUpBig, fadeOutDownBig, fadeOutLeftBig, fadeOutRightBig
+
+**Bouncing entrances**
+- bounceIn, bounceInDown, bounceInUp, bounceInLeft, bounceInRight
+
+**Bouncing exits**
+- bounceOut, bounceOutDown, bounceOutUp, 
+  bounceOutLeft, bounceOutRight
+
+**Rotating entrances**
+- rotateIn, rotateInDownLeft, rotateInDownRight, 
+  rotateInUpLeft, rotateInUpRight
+
+**Rotating exits**
+- rotateOut, rotateOutDownLeft, rotateOutDownRight, 
+  rotateOutUpLeft, rotateOutUpRight
+
+**Lightspeed**
+- lightSpeedIn, lightSpeedOut
+
+**Specials**
+- hinge, rollIn, rollOut
