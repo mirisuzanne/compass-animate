@@ -1,0 +1,16 @@
+// ---------------------------------------------------------------------------
+// imports
+
+@import "lightSpeed/lightSpeedIn";
+@import "lightSpeed/lightSpeedOut";
+
+// ---------------------------------------------------------------------------
+// lightSpeed [ in | out | all ]
+
+@mixin animate-lightSpeed($sub: all, $class: $default-animation-class-mode) {
+  $sub  : compact($sub);
+  $in   : yepnope($sub, all in);
+  $out  : yepnope($sub, all out);
+  @if $in   { @include animate-lightSpeedIn   ($class); } 
+  @if $out  { @include animate-lightSpeedOut  ($class); } 
+}

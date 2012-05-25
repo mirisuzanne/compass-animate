@@ -5,8 +5,8 @@
   $sub  : compact($sub);
   $in   : yepnope($sub, all in);
   $out  : yepnope($sub, all out);
-  @if $in { @include animate-rollIn($class); } 
-  @if $out { @include animate-rollOut($class); } 
+  @if $in   { @include animate-rollIn   ($class); } 
+  @if $out  { @include animate-rollOut  ($class); } 
 }
 
 // ---------------------------------------------------------------------------
