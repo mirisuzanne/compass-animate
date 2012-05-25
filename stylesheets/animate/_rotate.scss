@@ -1,0 +1,36 @@
+// ---------------------------------------------------------------------------
+// imports
+
+@import "rotate/rotateIn";
+@import "rotate/rotateOut";
+
+// ---------------------------------------------------------------------------
+// rotate [ in | in-only | inUp | inDown | inLeft | inRight | 
+//          inDownLeft | inDownRight | inUpLeft | inUpRight |
+//          out | out-only | outUp | outDown | outLeft | outRight |
+//          outDownLeft | outDownRight | outUpLeft | outUpRight | all ]
+
+@mixin animate-rotate($sub: all, $class: $default-animation-class-mode) {
+  $sub          : compact($sub);
+  $in-only      : yepnope($sub, all in in-only);
+  $inDownLeft   : yepnope($sub, all in inDown inLeft);
+  $inDownRight  : yepnope($sub, all in inDown inRight);
+  $inUpLeft     : yepnope($sub, all in inUp inLeft);
+  $inUpRight    : yepnope($sub, all in inUp inRight);
+  $out-only     : yepnope($sub, all out out-only);
+  $outDownLeft  : yepnope($sub, all out outDown outLeft);
+  $outDownRight : yepnope($sub, all out outDown outRight);
+  $outUpLeft    : yepnope($sub, all out outUp outLeft);
+  $outUpRight   : yepnope($sub, all out outUp outRight);
+  @if $in-only      { @include animate-rotateIn           ($class); } 
+  @if $inDownLeft   { @include animate-rotateInDownLeft   ($class); } 
+  @if $inDownRight  { @include animate-rotateInDownRight  ($class); } 
+  @if $inUpLeft     { @include animate-rotateInUpLeft     ($class); } 
+  @if $inUpRight    { @include animate-rotateInUpRight    ($class); } 
+  @if $out-only     { @include animate-rotateOut          ($class); } 
+  @if $outDownLeft  { @include animate-rotateOutDownLeft  ($class); } 
+  @if $outDownRight { @include animate-rotateOutDownRight ($class); } 
+  @if $outUpLeft    { @include animate-rotateOutUpLeft    ($class); } 
+  @if $outUpRight   { @include animate-rotateOutUpRight   ($class); } 
+}
+
