@@ -1,0 +1,37 @@
+// ---------------------------------------------------------------------------
+// animation class mode: true | false | silent
+
+$default-animation-class-mode: silent !default;
+
+// ---------------------------------------------------------------------------
+// animated class for external use
+@mixin animated-class($class: $default-animation-class-mode) {
+  $selector: if($class == 'silent', '%animated', '.animated');
+  #{$selector} { @include animation(1s ease both); }
+}
+
+// ---------------------------------------------------------------------------
+// animation-class
+
+@mixin animation-class($name, $class: $default-animation-class-mode) {
+  $selector: if($class == 'silent', '%', '.') + $name;
+  @if $class {
+    #{$selector} { 
+      @include animation-name($name); 
+      @content;
+    } 
+  }
+}
+
+// ---------------------------------------------------------------------------
+// yepnope
+
+// Take a $list, return true if any $args are present.
+@function yepnope($list, $args) {
+  $list     : compact($list);
+  $return   : false;
+  @each $arg in $args {
+    $return: if(index($list,$arg), true, $return); 
+  }
+  @return $return; 
+}

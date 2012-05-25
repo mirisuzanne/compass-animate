@@ -103,13 +103,23 @@ That will output:
   75% { opacity: 0; }
   100% { opacity: 1; } }
 
-.flash { -webkit-animation-name: flash; -moz-animation-name: flash; -ms-animation-name: flash; -o-animation-name: flash; animation-name: flash; }
+.flash { 
+  -webkit-animation-name: flash; 
+     -moz-animation-name: flash; 
+      -ms-animation-name: flash; 
+       -o-animation-name: flash; 
+          animation-name: flash; }
 ```
 
 Now you have the named keyframes
 for the "flash" animation
 and a class name that you can use in your HTML
 or extend with Sass.
+
+You can also set `$class` to silent
+to get `%flash`
+which can be used with `@extends`
+but won't show up in the css.
 
 There are a few shortcuts as well:
 
@@ -127,37 +137,31 @@ There are a few shortcuts as well:
 
 This plugin includes the following animations:
 
-**Attention seekers**
+**Attention**
 - flash, bounce, shake, tada, swing, wobble, wiggle, pulse
 
-**Flippers** (currently Webkit, Firefox, & IE10 only)
+**Flip** (currently Webkit, Firefox, & IE10 only)
 - flip, flipInX, flipOutX, flipInY, flipOutY
 
-**Fading entrances**
+**Fade**
 - fadeIn, fadeInUp, fadeInDown, fadeInLeft, fadeInRight, 
   fadeInUpBig, fadeInDownBig, fadeInLeftBig, fadeInRightBig
-
-**Fading exits**
 - fadeOut, fadeOutUp, fadeOutDown, fadeOutLeft, fadeOutRight,
   fadeOutUpBig, fadeOutDownBig, fadeOutLeftBig, fadeOutRightBig
 
-**Bouncing entrances**
+**Bounce**
 - bounceIn, bounceInDown, bounceInUp, bounceInLeft, bounceInRight
+- bounceOut, bounceOutDown, bounceOutUp, bounceOutLeft, bounceOutRight
 
-**Bouncing exits**
-- bounceOut, bounceOutDown, bounceOutUp, 
-  bounceOutLeft, bounceOutRight
-
-**Rotating entrances**
+**Rotate**
 - rotateIn, rotateInDownLeft, rotateInDownRight, 
   rotateInUpLeft, rotateInUpRight
-
-**Rotating exits**
 - rotateOut, rotateOutDownLeft, rotateOutDownRight, 
   rotateOutUpLeft, rotateOutUpRight
 
 **Lightspeed**
 - lightSpeedIn, lightSpeedOut
 
-**Specials**
-- hinge, rollIn, rollOut
+**Special**
+- hinge
+- [roll]: rollIn, rollOut

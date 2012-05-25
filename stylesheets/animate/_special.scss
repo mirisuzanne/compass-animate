@@ -1,0 +1,17 @@
+// ---------------------------------------------------------------------------
+// imports
+
+@import "special/hinge";
+@import "special/roll";
+
+// ---------------------------------------------------------------------------
+// special [hinge | roll | rollIn | rollOut | all ]
+
+@mixin animate-special($sub: all, $class: $default-animation-class-mode) {
+  $hinge    : yepnope($sub, all hinge);
+  $rollIn   : yepnope($sub, all roll rollIn);
+  $rollOut  : yepnope($sub, all roll rollOut);
+  @if $hinge { @include animate-hinge($class); } 
+  @if $rollIn { @include animate-rollIn($class); } 
+  @if $rollOut { @include animate-rollOut($class); } 
+}
