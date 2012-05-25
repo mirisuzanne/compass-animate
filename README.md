@@ -51,14 +51,26 @@ But you can get much more detailed:
 
 ```scss
 // Temlate:
-// @include animate[-animationName]([$class: false]);
-
-// Include only the flash animation keyframes,
-// with associated class name:
-@include animate-flash(true);
+// @include animate[-animationName]([$sub: all, $class: false]);
 ```
 
-Which will output:
+Let's say you want just the "flash" animation:
+
+```scss
+// Include only the flash animation keyframes
+@include animate-flash;
+```
+
+But you also want a pre-defined class
+that calls that animation:
+
+```scss
+// Include only the flash animation keyframes,
+// with associated class name:
+@include animate-flash($class:true);
+```
+
+That will output:
 
 ```css
 @-moz-keyframes flash { 0% { opacity: 1; }
@@ -98,6 +110,18 @@ Now you have the named keyframes
 for the "flash" animation
 and a class name that you can use in your HTML
 or extend with Sass.
+
+There are a few shortcuts as well:
+
+```scss
+// this:
+@include animate-fadeIn;
+@include animate-fadeOut;
+@include animate-fadeOutBig;
+
+// is equal to this:
+@include animate-fade(In Out OutBig);
+```
 
 ## Animations
 
