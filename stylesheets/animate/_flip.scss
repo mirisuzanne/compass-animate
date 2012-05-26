@@ -1,4 +1,13 @@
 // ---------------------------------------------------------------------------
+// special class handling
+
+@mixin flip-class($name, $class: $default-animation-class-mode) {
+  @include animation-class($name, $class) {
+    @include backface-visibility(visible);
+  }
+}
+
+// ---------------------------------------------------------------------------
 // imports 
 
 @import "flip/flipIn";
@@ -47,7 +56,7 @@
         @include animation-timing-function(ease-in);
       }
     }
-    @include animation-class($name, $class) {}
+    @include flip-class($name, $class);
   }
 }
 

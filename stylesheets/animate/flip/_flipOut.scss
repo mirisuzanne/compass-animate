@@ -24,7 +24,7 @@
       @include opacity(0);
     }
   }
-  @include animation-class($name, $class) {}
+  @include flip-class($name, $class);
 }
 
 // ---------------------------------------------------------------------------
@@ -42,5 +42,5 @@
       @include opacity(0);
     }
   }
-  @include animation-class($name, $class) {}
+  @include flip-class($name, $class);
 }
