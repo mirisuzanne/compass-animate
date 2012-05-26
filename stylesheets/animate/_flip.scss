@@ -14,7 +14,7 @@
 @import "flip/flipOut";
 
 // ---------------------------------------------------------------------------
-// flip [ only | all |
+// flip [ only | in | out | x | y | all |
 //        flipIn | flipInX | flipInY | 
 //        flipOut | flipOutX | flipOutY |
 //        flipX | flipY ]
@@ -22,10 +22,10 @@
 @mixin animate-flip($sub: all, $class: $default-animation-class-mode) {
   $sub        : compact($sub);
   $only       : yepnope($sub, all only);
-  $flipInX    : yepnope($sub, all flipIn flipInX flipX);
-  $flipInY    : yepnope($sub, all flipIn flipInY flipY);
-  $flipOutX   : yepnope($sub, all flipOut flipOutX flipX);
-  $flipOutY   : yepnope($sub, all flipOut flipOutY flipY);
+  $flipInX    : yepnope($sub, all flipIn flipInX flipX in x);
+  $flipInY    : yepnope($sub, all flipIn flipInY flipY in y);
+  $flipOutX   : yepnope($sub, all flipOut flipOutX flipX out x);
+  $flipOutY   : yepnope($sub, all flipOut flipOutY flipY out y);
 
   @if $flipInX    { @include animate-flipInX    ($class); } 
   @if $flipInY    { @include animate-flipInY    ($class); } 

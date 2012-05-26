@@ -7,7 +7,7 @@
 // ---------------------------------------------------------------------------
 // bounce [ in | inUp | inDown | inLeft | inRight | 
 //          out | outUp | outDown | outLeft | outRight |
-//          up | down | left | right ]
+//          up | down | left | right | all ]
 
 @mixin animate-rotate($sub: all, $class: $default-animation-class-mode) {
   $sub      : compact($sub);
