@@ -1,0 +1,34 @@
+// ---------------------------------------------------------------------------
+// imports
+
+@import "bounce/bounceIn";
+@import "bounce/bounceOut";
+
+// ---------------------------------------------------------------------------
+// bounce [ in | inUp | inDown | inLeft | inRight | 
+//          out | outUp | outDown | outLeft | outRight |
+//          up | down | left | right ]
+
+@mixin animate-rotate($sub: all, $class: $default-animation-class-mode) {
+  $sub      : compact($sub);
+  $in       : yepnope($sub, all in);
+  $inUp     : yepnope($sub, all in inUp up);
+  $inDown   : yepnope($sub, all in inDown down);
+  $inLeft   : yepnope($sub, all in inLeft left);
+  $inRight  : yepnope($sub, all in inRight right);
+  $out      : yepnope($sub, all out);
+  $outUp    : yepnope($sub, all out outUp up);
+  $outDown  : yepnope($sub, all out outDown down);
+  $outLeft  : yepnope($sub, all out outLeft left);
+  $outRight : yepnope($sub, all out outRight right);
+  @if $in         { @include animate-in       ($class); }
+  @if $inUp       { @include animate-inUp     ($class); }
+  @if $inDown     { @include animate-inDown   ($class); }
+  @if $inLeft     { @include animate-inLeft   ($class); }
+  @if $inRight    { @include animate-inRight  ($class); }
+  @if $out        { @include animate-out      ($class); }
+  @if $outUp      { @include animate-outUp    ($class); }
+  @if $outDown    { @include animate-outDown  ($class); }
+  @if $outLeft    { @include animate-outLeft  ($class); }
+  @if $outRight   { @include animate-outRight ($class); }
+}

@@ -1,0 +1,107 @@
+// ---------------------------------------------------------------------------
+// bounceOut
+
+@mixin animate-bounceOut($class: $default-animation-class-mode) {
+  $name: bounceOut;
+  @include keyframes(bounceOut) {
+    0% {
+      @include scale(1); 
+    }
+    25% {
+      @include scale(0.95); 
+    }
+    50% {
+      opacity: 1;
+      @include scale(1.1); 
+    }
+    100% {
+      opacity: 0;
+      @include scale(0.3); 
+    } 
+  }
+  @include animation-class($name, $class) {}
+}
+
+// ---------------------------------------------------------------------------
+// bounceOutUp
+
+@mixin animate-bounceOutUp($class: $default-animation-class-mode) {
+  $name: bounceOutUp;
+  @include keyframes($name) {
+    0% {
+      @include translateY(0); 
+    }
+    20% {
+      opacity: 1;
+      @include translateY(20px); 
+    }
+    100% {
+      opacity: 0;
+      @include translateY(-2000px); 
+    } 
+  }
+  @include animation-class($name, $class) {}
+}
+
+// ---------------------------------------------------------------------------
+// bounceOutDown
+
+@mixin animate-bounceOutDown($class: $default-animation-class-mode) {
+  $name: bounceOutDown;
+  @include keyframes($name) {
+    0% {
+      @include translateY(0); 
+    }
+    20% {
+      opacity: 1;
+      @include translateY(-20px); 
+    }
+    100% {
+      opacity: 0;
+      @include translateY(2000px); 
+    } 
+  }
+  @include animation-class($name, $class) {}
+}
+
+// ---------------------------------------------------------------------------
+// bounceOutLeft
+
+@mixin animate-bounceOutLeft($class: $default-animation-class-mode) {
+  $name: bounceOutLeft;
+  @include keyframes($name) {
+    0% {
+      @include translateX(0); 
+    }
+    20% {
+      opacity: 1;
+      @include translateX(20px); 
+    }
+    100% {
+      opacity: 0;
+      @include translateX(-2000px); 
+    } 
+  }
+  @include animation-class($name, $class) {}
+}
+
+// ---------------------------------------------------------------------------
+// bounceOutRight
+
+@mixin animate-bounceOutRight($class: $default-animation-class-mode) {
+  $name: bounceOutRight;
+  @include keyframes($name) {
+    0% {
+      @include translateX(0); 
+    }
+    20% {
+      opacity: 1;
+      @include translateX(-20px); 
+    }
+    100% {
+      opacity: 0;
+      @include translateX(2000px); 
+    } 
+  }
+  @include animation-class($name, $class) {}
+}
