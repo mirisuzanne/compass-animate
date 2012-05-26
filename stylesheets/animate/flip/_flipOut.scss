@@ -1,0 +1,46 @@
+// ---------------------------------------------------------------------------
+// flipOut [ x | y | all ]
+
+@mixin animate-flipOut($sub: all, $class: $default-animation-class-mode) {
+  $sub  : compact($sub);
+  $x    : yepnope($sub, all x);
+  $y    : yepnope($sub, all y);
+  @if $x  { @include animate-flipOutX (all, $class); } 
+  @if $y  { @include animate-flipOutY (all, $class); } 
+}
+
+// ---------------------------------------------------------------------------
+// flipOutX
+
+@mixin animate-flipOutX($class: $default-animation-class-mode) {
+  $name: flipOutX;
+  @include keyframes($name) {
+    0% {
+      @include transform(perspective(400px) rotateX(0deg));
+      @include opacity(1);
+    }
+    100% {
+      @include transform(perspective(400px) rotateX(90deg));
+      @include opacity(0);
+    }
+  }
+  @include animation-class($name, $class) {}
+}
+
+// ---------------------------------------------------------------------------
+// flipOutY
+
+@mixin animate-flipOutY($class: $default-animation-class-mode) {
+  $name: flipOutY;
+  @include keyframes($name) {
+    0% {
+      @include transform(perspective(400px) rotateY(0deg));
+      @include opacity(1);
+    }
+    100% {
+      @include transform(perspective(400px) rotateY(90deg));
+      @include opacity(0);
+    }
+  }
+  @include animation-class($name, $class) {}
+}

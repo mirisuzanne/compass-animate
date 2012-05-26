@@ -1,0 +1,58 @@
+// ---------------------------------------------------------------------------
+// flipIn [ x | y | all ]
+
+@mixin animate-flipIn($sub: all, $class: $default-animation-class-mode) {
+  $sub  : compact($sub);
+  $x    : yepnope($sub, all x);
+  $y    : yepnope($sub, all y);
+  @if $x  { @include animate-flipInX  (all, $class); } 
+  @if $y  { @include animate-flipInY  (all, $class); } 
+}
+
+// ---------------------------------------------------------------------------
+// flipInX
+
+@mixin animate-flipInX($class: $default-animation-class-mode) {
+  $name: flipInX;
+  @include keyframes($name) {
+    0% {
+      @include transform(perspective(400px) rotateX(90deg));
+      @include opacity(0);
+    }
+    40% {
+      @include transform(perspective(400px) rotateX(-10deg));
+    }
+    70% {
+      @include transform(perspective(400px) rotateX(10deg));
+    }
+    100% {
+      @include transform(perspective(400px) rotateX(0deg));
+      @include opacity(1);
+    }
+  }
+  @include animation-class($name, $class) {}
+}
+
+// ---------------------------------------------------------------------------
+// flipInY
+
+@mixin animate-flipInY($class: $default-animation-class-mode) {
+  $name: flipInY;
+  @include keyframes($name) {
+    0% {
+      @include transform(perspective(400px) rotateY(90deg));
+      @include opacity(0);
+    }
+    40% {
+      @include transform(perspective(400px) rotateY(-10deg));
+    }
+    70% {
+      @include transform(perspective(400px) rotateY(10deg));
+    }
+    100% {
+      @include transform(perspective(400px) rotateY(0deg));
+      @include opacity(1);
+    }
+  }
+  @include animation-class($name, $class) {}
+}

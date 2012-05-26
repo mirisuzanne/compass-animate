@@ -1,0 +1,74 @@
+// ---------------------------------------------------------------------------
+// imports 
+
+@import "flip/flipIn";
+@import "flip/flipOut";
+
+// ---------------------------------------------------------------------------
+// flip [ only | all |
+//        flipIn | flipInX | flipInY | 
+//        flipOut | flipOutX | flipOutY |
+//        flipX | flipY ]
+
+@mixin animate-flip($sub: all, $class: $default-animation-class-mode) {
+  $sub        : compact($sub);
+  $only       : yepnope($sub, all only);
+  $flipInX    : yepnope($sub, all flipIn flipInX flipX);
+  $flipInY    : yepnope($sub, all flipIn flipInY flipY);
+  $flipOutX   : yepnope($sub, all flipOut flipOutX flipX);
+  $flipOutY   : yepnope($sub, all flipOut flipOutY flipY);
+
+  @if $flipInX    { @include animate-flipInX    ($class); } 
+  @if $flipInY    { @include animate-flipInY    ($class); } 
+  @if $flipOutX   { @include animate-flipOutX   ($class); } 
+  @if $flipOutY   { @include animate-flipOutY   ($class); } 
+
+  $name: flip;
+  @if $only {
+    @include keyframes($name) {
+      0% {
+        @include transform(perspective(400px) rotateY(0));
+        @include animation-timing-function(ease-out);
+      }
+      40% {
+        @include transform(perspective(400px) translateZ(150px) rotateY(170deg));
+        @include animation-timing-function(ease-out);
+      }
+      50% {
+        @include transform(perspective(400px) translateZ(150px) rotateY(190deg) scale(1));
+        @include animation-timing-function(ease-in);
+      }
+      80% {
+        @include transform(perspective(400px) rotateY(360deg) scale(0.95));
+        @include animation-timing-function(ease-in);
+      }
+      100% {
+        @include transform(perspective(400px) scale(1));
+        @include animation-timing-function(ease-in);
+      }
+    }
+    @include animation-class($name, $class) {}
+  }
+}
+
+// ---------------------------------------------------------------------------
+// flipX [ in | out | all ]
+
+@mixin animate-flipX($sub: all, $class: $default-animation-class-mode) {
+  $sub  : compact($sub);
+  $in   : yepnope($sub, all in);
+  $out  : yepnope($sub, all out);
+  @if $in   { @include animate-flipInX  (all, $class); } 
+  @if $out  { @include animate-flipOutX (all, $class); } 
+}
+
+// ---------------------------------------------------------------------------
+// flipY [ in | out | all ]
+
+@mixin animate-flipY($sub: all, $class: $default-animation-class-mode) {
+  $sub  : compact($sub);
+  $in   : yepnope($sub, all in);
+  $out  : yepnope($sub, all out);
+  @if $in   { @include animate-flipInY  (all, $class); } 
+  @if $out  { @include animate-flipOutY (all, $class); } 
+}
