@@ -3,12 +3,37 @@
 // Author : Dan Eden
 // URL    : http://daneden.me/animate/
 // ---------------------------------------------------------------------------
+// imports
+
 @import "helpers";
 
-// @import "animate/attention";
-// @import "animate/bounce";
-// @import "animate/fade";
-// @import "animate/flip";
-// @import "animate/lightspeed";
-// @import "animate/rotate";
+@import "animate/attention";
+@import "animate/bounce";
+@import "animate/fade";
+@import "animate/flip";
+@import "animate/lightspeed";
+@import "animate/rotate";
 @import "animate/special";
+
+// ---------------------------------------------------------------------------
+// animate [ attention | bounce | fade | flip | 
+//           lightSpeed | rotate | special | all ]
+
+@mixin animate($sub: all, $class: $default-animation-class-mode) {
+  $sub        : compact($sub);
+  $attention  : yepnope($sub, all attention);
+  $bounce     : yepnope($sub, all bounce);
+  $fade       : yepnope($sub, all fade);
+  $flip       : yepnope($sub, all flip);
+  $lightSpeed : yepnope($sub, all lightspeed);
+  $rotate     : yepnope($sub, all rotate);
+  $special    : yepnope($sub, all special);
+  @if $attention  { @include animate-attention  (all, $class); } 
+  @if $bounce     { @include animate-bounce     (all, $class); } 
+  @if $fade       { @include animate-fade       (all, $class); } 
+  @if $flip       { @include animate-flip       (all, $class); } 
+  @if $lightSpeed { @include animate-lightSpeed (all, $class); } 
+  @if $rotate     { @include animate-rotate     (all, $class); } 
+  @if $special    { @include animate-special    (all, $class); } 
+}
+
