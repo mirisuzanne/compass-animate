@@ -2,7 +2,7 @@
 // rotateIn [ only | up | down | left | right | 
 //            downLeft | downRight | upLeft | upRight | all ]
 
-@mixin rotateIn($sub: all, $class: $default-animation-class-mode) {
+@mixin animate-rotateIn($sub: all, $class: $default-animation-class-mode) {
   $sub        : compact($sub);
   $only       : yepnope($sub, all only);
   $downLeft   : yepnope($sub, all down left downLeft);
