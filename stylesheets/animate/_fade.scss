@@ -1,0 +1,52 @@
+// ---------------------------------------------------------------------------
+// imports
+
+@import "fade/fadeIn";
+@import "fade/fadeOut";
+
+// ---------------------------------------------------------------------------
+// fade [ in | inUp | inDown | inLeft | inRight | 
+//        inUpBig | inDownBig | inLeftBig | inRightBig | 
+//        out | outUp | outDown | outLeft | outRight |
+//        outUpBig | outDownBig | outLeftBig | outRightBig |
+//        up | down | left | right | big | all ]
+
+@mixin animate-fade($sub: all, $class: $default-animation-class-mode) {
+  $sub          : compact($sub);
+  $in           : yepnope($sub, all in);
+  $inUp         : yepnope($sub, all in inUp up);
+  $inDown       : yepnope($sub, all in inDown down);
+  $inLeft       : yepnope($sub, all in inLeft left);
+  $inRight      : yepnope($sub, all in inRight right);
+  $inUpBig      : yepnope($sub, all in inUp up big);
+  $inDownBig    : yepnope($sub, all in inDown down big);
+  $inLeftBig    : yepnope($sub, all in inLeft left big);
+  $inRightBig   : yepnope($sub, all in inRight right big);
+  $out          : yepnope($sub, all out);
+  $outUp        : yepnope($sub, all out outUp up);
+  $outDown      : yepnope($sub, all out outDown down);
+  $outLeft      : yepnope($sub, all out outLeft left);
+  $outRight     : yepnope($sub, all out outRight right);
+  $outUpBig     : yepnope($sub, all out outUp up big);
+  $outDownBig   : yepnope($sub, all out outDown down big);
+  $outLeftBig   : yepnope($sub, all out outLeft left big);
+  $outRightBig  : yepnope($sub, all out outRight right big);
+  @if $in           { @include animate-in           ($class); }
+  @if $inUp         { @include animate-inUp         ($class); }
+  @if $inDown       { @include animate-inDown       ($class); }
+  @if $inLeft       { @include animate-inLeft       ($class); }
+  @if $inRight      { @include animate-inRight      ($class); }
+  @if $inUpBig      { @include animate-inUpBig      ($class); }
+  @if $inDownBig    { @include animate-inDownBig    ($class); }
+  @if $inLeftBig    { @include animate-inLeftBig    ($class); }
+  @if $inRightBig   { @include animate-inRightBig   ($class); }
+  @if $out          { @include animate-out          ($class); }
+  @if $outUp        { @include animate-outUp        ($class); }
+  @if $outDown      { @include animate-outDown      ($class); }
+  @if $outLeft      { @include animate-outLeft      ($class); }
+  @if $outRight     { @include animate-outRight     ($class); }
+  @if $outUpBig     { @include animate-outUpBig     ($class); }
+  @if $outDownBig   { @include animate-outDownBig   ($class); }
+  @if $outLeftBig   { @include animate-outLeftBig   ($class); }
+  @if $outRightBig  { @include animate-outRightBig  ($class); }
+}

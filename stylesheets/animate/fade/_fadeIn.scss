@@ -1,0 +1,159 @@
+// ---------------------------------------------------------------------------
+// fadeIn
+
+@mixin animate-fadeIn($class: $default-animation-class-mode) {
+  $name: fadeIn;  
+  @include keyframes($name) {
+    0% {
+      opacity: 0; 
+    }
+    100% {
+      opacity: 1; 
+    } 
+  }
+  @include flip-class($name, $class);
+}
+
+// ---------------------------------------------------------------------------
+// fadeInUp
+
+@mixin animate-fadeInUp($class: $default-animation-class-mode) {
+  $name: fadeInUp;  
+  @include keyframes($name) {
+    0% {
+      @include translateY(20px);
+      opacity: 0; 
+    }
+    100% {
+      @include translateY(0);
+      opacity: 1; 
+    } 
+  }
+  @include flip-class($name, $class);
+}
+
+// ---------------------------------------------------------------------------
+// fadeInDown
+
+@mixin animate-fadeInDown($class: $default-animation-class-mode) {
+  $name: fadeInDown;  
+  @include keyframes($name) {
+    0% {
+      @include translateY(-20px);
+      opacity: 0; 
+    }
+    100% {
+      @include translateY(0);
+      opacity: 1; 
+    } 
+  }
+  @include flip-class($name, $class);
+}
+
+// ---------------------------------------------------------------------------
+// fadeInRight
+
+@mixin animate-fadeInRight($class: $default-animation-class-mode) {
+  $name: fadeInRight;  
+  @include keyframes($name) {
+    0% {
+      @include translateX(20px);
+      opacity: 0; 
+    }
+    100% {
+      @include translateX(0);
+      opacity: 1; 
+    } 
+  }
+  @include flip-class($name, $class);
+}
+
+// ---------------------------------------------------------------------------
+// fadeInLeft
+
+@mixin animate-fadeInLeft($class: $default-animation-class-mode) {
+  $name: fadeInLeft;  
+  @include keyframes($name) {
+    0% {
+      @include translateX(-20px);
+      opacity: 0; 
+    }
+    100% {
+      @include translateX(0);
+      opacity: 1; 
+    } 
+  }
+  @include flip-class($name, $class);
+}
+
+// ---------------------------------------------------------------------------
+// fadeInUpBig
+
+@mixin animate-fadeInUpBig($class: $default-animation-class-mode) {
+  $name: fadeInUpBig;  
+  @include keyframes($name) {
+    0% {
+      @include translateY(2000px);
+      opacity: 0; 
+    }
+    100% {
+      @include translateY(0);
+      opacity: 1; 
+    } 
+  }
+  @include flip-class($name, $class);
+}
+
+// ---------------------------------------------------------------------------
+// fadeInDownBig
+
+@mixin animate-fadeInDownBig($class: $default-animation-class-mode) {
+  $name: fadeInDownBig;  
+  @include keyframes($name) {
+    0% {
+      opacity: 0;
+      @include translateY(-2000px); 
+    }
+    100% {
+      opacity: 1;
+      @include translateY(0); 
+    } 
+  }
+  @include flip-class($name, $class);
+}
+
+// ---------------------------------------------------------------------------
+// fadeInRightBig
+
+@mixin animate-fadeInRightBig($class: $default-animation-class-mode) {
+  $name: fadeInRightBig;  
+  @include keyframes($name) {
+    0% {
+      opacity: 0;
+      @include translateX(2000px); 
+    }
+    100% {
+      opacity: 1;
+      @include translateX(0); 
+    } 
+  }
+  @include flip-class($name, $class);
+}
+
+// ---------------------------------------------------------------------------
+// fadeInLeftBig
+
+@mixin animate-fadeInLeftBig($class: $default-animation-class-mode) {
+  $name: fadeInLeftBig;  
+  @include keyframes($name) {
+    0% {
+      opacity: 0;
+      @include translateX(-2000px); 
+    }
+    100% {
+      opacity: 1;
+      @include translateX(0); 
+    } 
+  }
+  @include flip-class($name, $class);
+}
