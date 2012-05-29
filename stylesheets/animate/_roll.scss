@@ -1,0 +1,16 @@
+// ---------------------------------------------------------------------------
+// imports
+
+@import "roll/rollIn";
+@import "roll/rollOut";
+
+// ---------------------------------------------------------------------------
+// roll [ in | out | all ]
+
+@mixin animate-roll($sub: all, $class: $default-animation-class-mode) {
+  $sub  : compact($sub);
+  $in   : yepnope($sub, all in);
+  $out  : yepnope($sub, all out);
+  @if $in   { @include animate-rollIn   ($class); } 
+  @if $out  { @include animate-rollOut  ($class); } 
+}
