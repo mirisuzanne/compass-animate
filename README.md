@@ -1,3 +1,11 @@
+**Note:** This is still fairly new. All the core mixins and animations work,
+but I don't promise the same for all the shortcuts,
+and I know the documentation could use work.
+If you run into any problems, please file and issue.
+Even better, fix it and file a pull request.
+
+Thanks!
+
 Compass Animate
 ===============
 
