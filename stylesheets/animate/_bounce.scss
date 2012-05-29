@@ -7,10 +7,11 @@
 // ---------------------------------------------------------------------------
 // bounce [ in | inUp | inDown | inLeft | inRight | 
 //          out | outUp | outDown | outLeft | outRight |
-//          up | down | left | right | all ]
+//          up | down | left | right | only | all ]
 
 @mixin animate-bounce($sub: all, $class: $default-animation-class-mode) {
   $sub      : compact($sub);
+  $only     : yepnope($sub, all only);
   $in       : yepnope($sub, all in);
   $inUp     : yepnope($sub, all in inUp up);
   $inDown   : yepnope($sub, all in inDown down);
@@ -21,14 +22,42 @@
   $outDown  : yepnope($sub, all out outDown down);
   $outLeft  : yepnope($sub, all out outLeft left);
   $outRight : yepnope($sub, all out outRight right);
-  @if $in         { @include animate-in       ($class); }
-  @if $inUp       { @include animate-inUp     ($class); }
-  @if $inDown     { @include animate-inDown   ($class); }
-  @if $inLeft     { @include animate-inLeft   ($class); }
-  @if $inRight    { @include animate-inRight  ($class); }
-  @if $out        { @include animate-out      ($class); }
-  @if $outUp      { @include animate-outUp    ($class); }
-  @if $outDown    { @include animate-outDown  ($class); }
-  @if $outLeft    { @include animate-outLeft  ($class); }
-  @if $outRight   { @include animate-outRight ($class); }
+  @if $in         { @include animate-bounceIn       ($class); }
+  @if $inUp       { @include animate-bounceInUp     ($class); }
+  @if $inDown     { @include animate-bounceInDown   ($class); }
+  @if $inLeft     { @include animate-bounceInLeft   ($class); }
+  @if $inRight    { @include animate-bounceInRight  ($class); }
+  @if $out        { @include animate-bounceOut      ($class); }
+  @if $outUp      { @include animate-bounceOutUp    ($class); }
+  @if $outDown    { @include animate-bounceOutDown  ($class); }
+  @if $outLeft    { @include animate-bounceOutLeft  ($class); }
+  @if $outRight   { @include animate-bounceOutRight ($class); }
+
+  $name: bounce;
+  @if $only {  
+    @include keyframes($name) {
+      0% {
+        @include translateY(0); 
+      }
+      20% {
+        @include translateY(0); 
+      }
+      40% {
+        @include translateY(-30px); 
+      }
+      50% {
+        @include translateY(0); 
+      }
+      60% {
+        @include translateY(-15px); 
+      }
+      80% {
+        @include translateY(0); 
+      }
+      100% {
+        @include translateY(0); 
+      } 
+    }
+    @include animation-class($name, $class) {}
+  }
 }

@@ -19,12 +19,12 @@
   @if $only {
     @include keyframes($name) {
       0% {
-        @include transform-origin(center center);
+        @include transform-origin(center, center);
         @include rotate(0);
         opacity: 1; 
       }
       100% {
-        @include transform-origin(center center);
+        @include transform-origin(center, center);
         @include rotate(200deg);
         opacity: 0; 
       }
@@ -85,12 +85,12 @@
   $name: rotateOutDownLeft;
   @include keyframes($name) {
     0% {
-      @include transform-origin(left bottom);
+      @include transform-origin(left, bottom);
       @include rotate(0);
       opacity: 1; 
     }
     100% {
-      @include transform-origin(left bottom);
+      @include transform-origin(left, bottom);
       @include rotate(90deg);
       opacity: 0; 
     } 
@@ -105,12 +105,12 @@
   $name: rotateOutUpLeft;
   @include keyframes($name) {
     0% {
-      @include transform-origin(left bottom);
+      @include transform-origin(left, bottom);
       @include rotate(0);
       opacity: 1; 
     }
     100% {
-      @include transform-origin(left bottom);
+      @include transform-origin(left, bottom);
       @include rotate(-90deg);
       opacity: 0; 
     } 
@@ -125,12 +125,12 @@
   $name: rotateOutDownRight;
   @include keyframes($name) {
     0% {
-      @include transform-origin(right bottom);
+      @include transform-origin(right, bottom);
       @include rotate(0);
       opacity: 1; 
     }
     100% {
-      @include transform-origin(right bottom);
+      @include transform-origin(right, bottom);
       @include rotate(-90deg);
       opacity: 0; 
     } 
@@ -145,12 +145,12 @@
   $name: rotateOutUpRight;
   @include keyframes($name) {
     0% {
-      @include transform-origin(right bottom);
+      @include transform-origin(right, bottom);
       @include rotate(0);
       opacity: 1; 
     }
     100% {
-      @include transform-origin(right bottom);
+      @include transform-origin(right, bottom);
       @include rotate(90deg);
       opacity: 0; 
     } 

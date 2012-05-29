@@ -23,12 +23,12 @@
   $outDownRight : yepnope($sub, all out outDown outRight right down);
   $outUpLeft    : yepnope($sub, all out outUp outLeft left up);
   $outUpRight   : yepnope($sub, all out outUp outRight right up);
-  @if $in-only      { @include animate-rotateIn           ($class); } 
+  @if $in-only      { @include animate-rotateIn           (only, $class); } 
   @if $inDownLeft   { @include animate-rotateInDownLeft   ($class); } 
   @if $inDownRight  { @include animate-rotateInDownRight  ($class); } 
   @if $inUpLeft     { @include animate-rotateInUpLeft     ($class); } 
   @if $inUpRight    { @include animate-rotateInUpRight    ($class); } 
-  @if $out-only     { @include animate-rotateOut          ($class); } 
+  @if $out-only     { @include animate-rotateOut          (only, $class); } 
   @if $outDownLeft  { @include animate-rotateOutDownLeft  ($class); } 
   @if $outDownRight { @include animate-rotateOutDownRight ($class); } 
   @if $outUpLeft    { @include animate-rotateOutUpLeft    ($class); } 
