@@ -37,6 +37,11 @@ gem install compass-animate
 
 ## Usage
 
+We try our best to stay up to date
+with the latest from Dan Eden,
+but we've also made a few changes
+and expanded on his base.
+
 You can include any number of named animation keyframes,
 each one with or without it's related class name.
 
@@ -116,8 +121,8 @@ for the "flash" animation
 and a class name that you can use in your HTML
 or extend with Sass.
 
-You can also set `$class` to silent
-to get `%flash`
+You can also set `$class` to `silent`
+and get `%flash`
 which can be used with `@extends`
 but won't show up in the css.
 
@@ -130,38 +135,57 @@ There are a few shortcuts as well:
 @include animate-fadeOutBig;
 
 // is equal to this:
-@include animate-fade(In Out OutBig);
+@include animate-fade(in-only out-only outBig);
+```
+
+If you want all the fadeOut animations:
+
+```scss
+@include animate-fade(out);
 ```
 
 ## Animations
 
-This plugin includes the following animations:
+This plugin includes the following _mixins_ & animations:
 
 **Attention**
+- _attention_
 - flash, bounce, shake, tada, swing, wobble, wiggle, pulse
 
 **Flip** (currently Webkit, Firefox, & IE10 only)
-- flip, flipInX, flipOutX, flipInY, flipOutY
+- flip, _flipX_, _flipY_
+- _flipIn_, flipInX, flipInY
+- _flipOut_, flipOutX, flipOutY
 
 **Fade**
+- _fade_
 - fadeIn, fadeInUp, fadeInDown, fadeInLeft, fadeInRight, 
   fadeInUpBig, fadeInDownBig, fadeInLeftBig, fadeInRightBig
 - fadeOut, fadeOutUp, fadeOutDown, fadeOutLeft, fadeOutRight,
   fadeOutUpBig, fadeOutDownBig, fadeOutLeftBig, fadeOutRightBig
 
 **Bounce**
+- _bounce_
 - bounceIn, bounceInDown, bounceInUp, bounceInLeft, bounceInRight
 - bounceOut, bounceOutDown, bounceOutUp, bounceOutLeft, bounceOutRight
 
+**Roll**
+- _roll_
+- rollIn
+- rollOut
+
 **Rotate**
+- _rotate_
 - rotateIn, rotateInDownLeft, rotateInDownRight, 
   rotateInUpLeft, rotateInUpRight
 - rotateOut, rotateOutDownLeft, rotateOutDownRight, 
   rotateOutUpLeft, rotateOutUpRight
 
 **Lightspeed**
-- lightSpeedIn, lightSpeedOut
+- _lightSpeed_
+- lightSpeedIn
+- lightSpeedOut
 
 **Special**
+- _special_
 - hinge
-- [roll]: rollIn, rollOut
