@@ -9,7 +9,7 @@
 //          out | outUp | outDown | outLeft | outRight |
 //          up | down | left | right | all ]
 
-@mixin animate-rotate($sub: all, $class: $default-animation-class-mode) {
+@mixin animate-bounce($sub: all, $class: $default-animation-class-mode) {
   $sub      : compact($sub);
   $in       : yepnope($sub, all in);
   $inUp     : yepnope($sub, all in inUp up);
