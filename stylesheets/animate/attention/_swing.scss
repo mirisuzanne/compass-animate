@@ -23,5 +23,7 @@
       @include rotate(0deg); 
     } 
   }
-  @include animation-class($name, $class) {}
+  @include animation-class($name, $class) {
+    @include transform-origin(top, center);
+  }
 }
