@@ -25,7 +25,7 @@ Compass Animate requires
 Compass 0.13 (currently in alpha).
 
 ```bash
-gem install compass-animate
+gem install animate --pre
 ```
 
 ```ruby
