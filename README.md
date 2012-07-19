@@ -9,7 +9,7 @@ Thanks!
 Compass Animate
 ===============
 
-This is the new home for 
+This is the new home for
 Eric Meyer's Compass port of
 [animate.css][animate]
 by [Dan Eden][dan].
@@ -18,7 +18,7 @@ It is splitting off from
 because the majority of that plugin
 has moved into [Compass 0.13][c13].
 This plugin is for people on the Compass edge,
-while that plugin remains useful 
+while that plugin remains useful
 to people who are still using Compass 0.12.
 
 Compass Animate requires
@@ -116,11 +116,11 @@ That will output:
   75% { opacity: 0; }
   100% { opacity: 1; } }
 
-.flash { 
-  -webkit-animation-name: flash; 
-     -moz-animation-name: flash; 
-      -ms-animation-name: flash; 
-       -o-animation-name: flash; 
+.flash {
+  -webkit-animation-name: flash;
+     -moz-animation-name: flash;
+      -ms-animation-name: flash;
+       -o-animation-name: flash;
           animation-name: flash; }
 ```
 
@@ -167,7 +167,7 @@ This plugin includes the following _mixins_ & animations:
 
 **Fade**
 - _fade_
-- fadeIn, fadeInUp, fadeInDown, fadeInLeft, fadeInRight, 
+- fadeIn, fadeInUp, fadeInDown, fadeInLeft, fadeInRight,
   fadeInUpBig, fadeInDownBig, fadeInLeftBig, fadeInRightBig
 - fadeOut, fadeOutUp, fadeOutDown, fadeOutLeft, fadeOutRight,
   fadeOutUpBig, fadeOutDownBig, fadeOutLeftBig, fadeOutRightBig
@@ -184,12 +184,12 @@ This plugin includes the following _mixins_ & animations:
 
 **Rotate**
 - _rotate_
-- rotateIn, rotateInDownLeft, rotateInDownRight, 
+- rotateIn, rotateInDownLeft, rotateInDownRight,
   rotateInUpLeft, rotateInUpRight
-- rotateOut, rotateOutDownLeft, rotateOutDownRight, 
+- rotateOut, rotateOutDownLeft, rotateOutDownRight,
   rotateOutUpLeft, rotateOutUpRight
 
-**Lightspeed**
+**LightSpeed**
 - _lightSpeed_
 - lightSpeedIn
 - lightSpeedOut
