@@ -1,4 +1,9 @@
 // ---------------------------------------------------------------------------
+// imports
+
+@import "compass/css3/animation";
+
+// ---------------------------------------------------------------------------
 // pulse
 
 @mixin animate-pulse($class: $default-animation-class-mode) {

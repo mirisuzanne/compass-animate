@@ -1,4 +1,10 @@
 // ---------------------------------------------------------------------------
+// imports
+
+@import "compass/css3/animation";
+@import "compass/css3/opacity";
+
+// ---------------------------------------------------------------------------
 // flipIn [ x | y | all ]
 
 @mixin animate-flipIn($sub: all, $class: $default-animation-class-mode) {
