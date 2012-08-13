@@ -1,4 +1,11 @@
 // ---------------------------------------------------------------------------
+// imports
+
+@import "compass/css3/animation";
+@import "compass/css3/transform";
+@import "compass/css3/opacity";
+
+// ---------------------------------------------------------------------------
 // bounceOut
 
 @mixin animate-bounceOut($class: $default-animation-class-mode) {

@@ -1,4 +1,9 @@
 // ---------------------------------------------------------------------------
+// imports
+@import "compass/css3/animation";
+@import "compass/css3/opacity";
+
+// ---------------------------------------------------------------------------
 // flash
 
 @mixin animate-flash($class: $default-animation-class-mode) {
