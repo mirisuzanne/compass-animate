@@ -1,4 +1,10 @@
 // ---------------------------------------------------------------------------
+// imports
+
+@import "compass/css3/animation";
+@import "compass/css3/opacity";
+
+// ---------------------------------------------------------------------------
 // flipOut [ x | y | all ]
 
 @mixin animate-flipOut($sub: all, $class: $default-animation-class-mode) {

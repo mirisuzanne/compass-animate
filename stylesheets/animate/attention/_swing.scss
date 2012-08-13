@@ -1,4 +1,10 @@
 // ---------------------------------------------------------------------------
+// imports
+
+@import "compass/css3/animation";
+@import "compass/css3/transform";
+
+// ---------------------------------------------------------------------------
 // swing
 
 @mixin animate-swing($class: $default-animation-class-mode) {

@@ -1,4 +1,11 @@
 // ---------------------------------------------------------------------------
+// imports
+
+@import "compass/css3/animation";
+@import "compass/css3/transform";
+@import "compass/css3/opacity";
+
+// ---------------------------------------------------------------------------
 // lightSpeedIn
 
 @mixin animate-lightSpeedIn($class: $default-animation-class-mode) {

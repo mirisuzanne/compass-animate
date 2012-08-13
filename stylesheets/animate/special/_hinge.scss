@@ -1,4 +1,10 @@
 // ---------------------------------------------------------------------------
+// imports
+@import "compass/css3/animation";
+@import "compass/css3/transform";
+@import "compass/css3/opacity";
+
+// ---------------------------------------------------------------------------
 // hinge
 
 @mixin animate-hinge($class: $default-animation-class-mode) {

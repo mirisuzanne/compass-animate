@@ -1,4 +1,11 @@
 // ---------------------------------------------------------------------------
+// imports
+
+@import "compass/css3/animation";
+@import "compass/css3/transform";
+@import "compass/css3/opacity";
+
+// ---------------------------------------------------------------------------
 // fadeOut
 
 @mixin animate-fadeOut($class: $default-animation-class-mode) {
