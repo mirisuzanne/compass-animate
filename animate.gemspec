@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   # Release Specific Information
-  s.version = "0.1.alpha.0"
+  s.version = "0.1.0"
 
   # Gem Details
   s.name = "animate"
@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.files += Dir.glob("stylesheets/**/*.*")
 
   # Gem Bookkeeping
-  s.add_dependency("sass", [">= 3.2.0.alpha.95"])
+  s.add_dependency("sass", [">= 3.2.0"])
   s.add_dependency("compass", [">= 0.13.alpha.0"])
 end
 
