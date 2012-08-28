@@ -6,10 +6,14 @@
 @import "compass/css3/opacity";
 
 // ---------------------------------------------------------------------------
-// rotateOut [ only | up | down | left | right | 
+// rotateOut [ only | up | down | left | right |
 //            downLeft | downRight | upLeft | upRight | all ]
 
-@mixin animate-rotateOut($sub: all, $class: $default-animation-class-mode) {
+@mixin animate-rotateOut(
+  $sub        : all,
+  $class      : $default-animation-class-mode,
+  $keyframes  : $default-keyframes-output
+) {
   $sub        : compact($sub);
   $only       : yepnope($sub, all only);
   $downLeft   : yepnope($sub, all down left downLeft);
@@ -17,23 +21,25 @@
   $upLeft     : yepnope($sub, all up left upLeft);
   $upRight    : yepnope($sub, all up right upRight);
 
-  @if $downLeft   { @include animate-rotateOutDownLeft   ($class); } 
-  @if $downRight  { @include animate-rotateOutDownRight  ($class); } 
-  @if $upLeft     { @include animate-rotateOutUpLeft     ($class); } 
-  @if $upRight    { @include animate-rotateOutUpRight    ($class); } 
+  @if $downLeft   { @include animate-rotateOutDownLeft   ($class, $keyframes); }
+  @if $downRight  { @include animate-rotateOutDownRight  ($class, $keyframes); }
+  @if $upLeft     { @include animate-rotateOutUpLeft     ($class, $keyframes); }
+  @if $upRight    { @include animate-rotateOutUpRight    ($class, $keyframes); }
 
   $name: rotateOut;
   @if $only {
-    @include keyframes($name) {
-      0% {
-        @include transform-origin(center, center);
-        @include rotate(0);
-        opacity: 1; 
-      }
-      100% {
-        @include transform-origin(center, center);
-        @include rotate(200deg);
-        opacity: 0; 
+    @if $keyframes {
+      @include keyframes($name) {
+        0% {
+          @include transform-origin(center, center);
+          @include rotate(0);
+          opacity: 1;
+        }
+        100% {
+          @include transform-origin(center, center);
+          @include rotate(200deg);
+          opacity: 0;
+        }
       }
     }
     @include animation-class($name, $class) {}
@@ -43,64 +49,85 @@
 // ---------------------------------------------------------------------------
 // rotateOutUp [ left | right | all ]
 
-@mixin animate-rotateOutUp($sub: all, $class: $default-animation-class-mode) {
+@mixin animate-rotateOutUp(
+  $sub        : all,
+  $class      : $default-animation-class-mode,
+  $keyframes  : $default-keyframes-output
+) {
   $sub    : compact($sub);
   $left   : yepnope($sub, all left);
   $right  : yepnope($sub, all right);
-  @if $left   { @include animate-rotateOutUpLeft  ($class); } 
-  @if $right  { @include animate-rotateOutUpRight ($class); } 
+  @if $left   { @include animate-rotateOutUpLeft  ($class, $keyframes); }
+  @if $right  { @include animate-rotateOutUpRight ($class, $keyframes); }
 }
 
 // ---------------------------------------------------------------------------
 // rotateOutDown [ left | right | all ]
 
-@mixin animate-rotateOutDown($sub: all, $class: $default-animation-class-mode) {
+@mixin animate-rotateOutDown(
+  $sub        : all,
+  $class      : $default-animation-class-mode,
+  $keyframes  : $default-keyframes-output
+) {
   $sub    : compact($sub);
   $left   : yepnope($sub, all left);
   $right  : yepnope($sub, all right);
-  @if $left   { @include animate-rotateOutDownLeft  ($class); } 
-  @if $right  { @include animate-rotateOutDownRight ($class); } 
+  @if $left   { @include animate-rotateOutDownLeft  ($class, $keyframes); }
+  @if $right  { @include animate-rotateOutDownRight ($class, $keyframes); }
 }
 
 
 // ---------------------------------------------------------------------------
 // rotateOutLeft [ up | down | all ]
 
-@mixin animate-rotateOutLeft($sub: all, $class: $default-animation-class-mode) {
+@mixin animate-rotateOutLeft(
+  $sub        : all,
+  $class      : $default-animation-class-mode,
+  $keyframes  : $default-keyframes-output
+) {
   $sub    : compact($sub);
   $up     : yepnope($sub, all up);
   $down   : yepnope($sub, all down);
-  @if $up   { @include animate-rotateOutUpLeft    ($class); } 
-  @if $down { @include animate-rotateOutDownLeft  ($class); } 
+  @if $up   { @include animate-rotateOutUpLeft    ($class, $keyframes); }
+  @if $down { @include animate-rotateOutDownLeft  ($class, $keyframes); }
 }
 
 // ---------------------------------------------------------------------------
 // rotateOutRight [ up | down | all ]
 
-@mixin animate-rotateOutRight($sub: all, $class: $default-animation-class-mode) {
+@mixin animate-rotateOutRight(
+  $sub        : all,
+  $class      : $default-animation-class-mode,
+  $keyframes  : $default-keyframes-output
+) {
   $sub    : compact($sub);
   $up     : yepnope($sub, all up);
   $down   : yepnope($sub, all down);
-  @if $up   { @include animate-rotateOutUpRight     ($class); } 
-  @if $down { @include animate-rotateOutDownRight   ($class); } 
+  @if $up   { @include animate-rotateOutUpRight     ($class, $keyframes); }
+  @if $down { @include animate-rotateOutDownRight   ($class, $keyframes); }
 }
 
 // ---------------------------------------------------------------------------
 // rotateOutDownLeft
 
-@mixin animate-rotateOutDownLeft($class: $default-animation-class-mode) {
+@mixin animate-rotateOutDownLeft(
+  $class      : $default-animation-class-mode,
+  $keyframes  : $default-keyframes-output
+) {
   $name: rotateOutDownLeft;
-  @include keyframes($name) {
-    0% {
-      @include transform-origin(left, bottom);
-      @include rotate(0);
-      opacity: 1; 
+  @if $keyframes {
+    @include keyframes($name) {
+      0% {
+        @include transform-origin(left, bottom);
+        @include rotate(0);
+        opacity: 1;
+      }
+      100% {
+        @include transform-origin(left, bottom);
+        @include rotate(90deg);
+        opacity: 0;
+      }
     }
-    100% {
-      @include transform-origin(left, bottom);
-      @include rotate(90deg);
-      opacity: 0; 
-    } 
   }
   @include animation-class($name, $class) {}
 }
@@ -108,19 +135,24 @@
 // ---------------------------------------------------------------------------
 // rotateOutUpLeft
 
-@mixin animate-rotateOutUpLeft($class: $default-animation-class-mode) {
+@mixin animate-rotateOutUpLeft(
+  $class      : $default-animation-class-mode,
+  $keyframes  : $default-keyframes-output
+) {
   $name: rotateOutUpLeft;
-  @include keyframes($name) {
-    0% {
-      @include transform-origin(left, bottom);
-      @include rotate(0);
-      opacity: 1; 
+  @if $keyframes {
+    @include keyframes($name) {
+      0% {
+        @include transform-origin(left, bottom);
+        @include rotate(0);
+        opacity: 1;
+      }
+      100% {
+        @include transform-origin(left, bottom);
+        @include rotate(-90deg);
+        opacity: 0;
+      }
     }
-    100% {
-      @include transform-origin(left, bottom);
-      @include rotate(-90deg);
-      opacity: 0; 
-    } 
   }
   @include animation-class($name, $class) {}
 }
@@ -128,19 +160,24 @@
 // ---------------------------------------------------------------------------
 // rotateOutDownRight
 
-@mixin animate-rotateOutDownRight($class: $default-animation-class-mode) {
+@mixin animate-rotateOutDownRight(
+  $class      : $default-animation-class-mode,
+  $keyframes  : $default-keyframes-output
+) {
   $name: rotateOutDownRight;
-  @include keyframes($name) {
-    0% {
-      @include transform-origin(right, bottom);
-      @include rotate(0);
-      opacity: 1; 
+  @if $keyframes {
+    @include keyframes($name) {
+      0% {
+        @include transform-origin(right, bottom);
+        @include rotate(0);
+        opacity: 1;
+      }
+      100% {
+        @include transform-origin(right, bottom);
+        @include rotate(-90deg);
+        opacity: 0;
+      }
     }
-    100% {
-      @include transform-origin(right, bottom);
-      @include rotate(-90deg);
-      opacity: 0; 
-    } 
   }
   @include animation-class($name, $class) {}
 }
@@ -148,19 +185,24 @@
 // ---------------------------------------------------------------------------
 // rotateOutUpRight
 
-@mixin animate-rotateOutUpRight($class: $default-animation-class-mode) {
+@mixin animate-rotateOutUpRight(
+  $class      : $default-animation-class-mode,
+  $keyframes  : $default-keyframes-output
+) {
   $name: rotateOutUpRight;
-  @include keyframes($name) {
-    0% {
-      @include transform-origin(right, bottom);
-      @include rotate(0);
-      opacity: 1; 
+  @if $keyframes {
+    @include keyframes($name) {
+      0% {
+        @include transform-origin(right, bottom);
+        @include rotate(0);
+        opacity: 1;
+      }
+      100% {
+        @include transform-origin(right, bottom);
+        @include rotate(90deg);
+        opacity: 0;
+      }
     }
-    100% {
-      @include transform-origin(right, bottom);
-      @include rotate(90deg);
-      opacity: 0; 
-    } 
   }
   @include animation-class($name, $class) {}
 }

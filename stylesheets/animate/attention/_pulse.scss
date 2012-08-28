@@ -6,18 +6,23 @@
 // ---------------------------------------------------------------------------
 // pulse
 
-@mixin animate-pulse($class: $default-animation-class-mode) {
+@mixin animate-pulse(
+  $class      : $default-animation-class-mode,
+  $keyframes  : $default-keyframes-output
+) {
   $name: pulse;
-  @include keyframes($name) {
-    0% {
-      @include scale(1); 
+  @if $keyframes {
+    @include keyframes($name) {
+      0% {
+        @include scale(1);
+      }
+      50% {
+        @include scale(1.1);
+      }
+      100% {
+        @include scale(1);
+      }
     }
-    50% {
-      @include scale(1.1); 
-    }
-    100% {
-      @include scale(1); 
-    } 
   }
   @include animation-class($name, $class) {}
 }

@@ -6,24 +6,29 @@
 // ---------------------------------------------------------------------------
 // flash
 
-@mixin animate-flash($class: $default-animation-class-mode) {
+@mixin animate-flash(
+  $class      : $default-animation-class-mode,
+  $keyframes  : $default-keyframes-output
+) {
   $name: flash;
-  @include keyframes($name) {
-    0% {
-      opacity: 1; 
+  @if $keyframes {
+    @include keyframes($name) {
+      0% {
+        opacity: 1;
+      }
+      25% {
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      75% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
     }
-    25% {
-      opacity: 0; 
-    }
-    50% {
-      opacity: 1; 
-    }
-    75% {
-      opacity: 0; 
-    }
-    100% {
-      opacity: 1; 
-    } 
   }
   @include animation-class($name, $class) {}
 }

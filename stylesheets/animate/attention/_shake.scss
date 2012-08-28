@@ -7,42 +7,47 @@
 // ---------------------------------------------------------------------------
 // shake
 
-@mixin animate-shake($class: $default-animation-class-mode) {
+@mixin animate-shake(
+  $class      : $default-animation-class-mode,
+  $keyframes  : $default-keyframes-output
+) {
   $name: shake;
-  @include keyframes($name) {
-    0% {
-      @include translateX(0); 
+  @if $keyframes {
+    @include keyframes($name) {
+      0% {
+        @include translateX(0);
+      }
+      10% {
+        @include translateX(-10px);
+      }
+      20% {
+        @include translateX(10px);
+      }
+      30% {
+        @include translateX(-10px);
+      }
+      40% {
+        @include translateX(10px);
+      }
+      50% {
+        @include translateX(-10px);
+      }
+      60% {
+        @include translateX(10px);
+      }
+      70% {
+        @include translateX(-10px);
+      }
+      80% {
+        @include translateX(10px);
+      }
+      90% {
+        @include translateX(-10px);
+      }
+      100% {
+        @include translateX(0);
+      }
     }
-    10% {
-      @include translateX(-10px); 
-    }
-    20% {
-      @include translateX(10px); 
-    }
-    30% {
-      @include translateX(-10px); 
-    }
-    40% {
-      @include translateX(10px); 
-    }
-    50% {
-      @include translateX(-10px); 
-    }
-    60% {
-      @include translateX(10px); 
-    }
-    70% {
-      @include translateX(-10px); 
-    }
-    80% {
-      @include translateX(10px); 
-    }
-    90% {
-      @include translateX(-10px); 
-    }
-    100% {
-      @include translateX(0); 
-    } 
   }
   @include animation-class($name, $class) {}
 }

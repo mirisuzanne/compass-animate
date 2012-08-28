@@ -10,10 +10,14 @@
 @import "attention/wiggle";
 
 // ---------------------------------------------------------------------------
-// attention [ flash | shake | tada | 
+// attention [ flash | shake | tada |
 //             swing | wobble | pulse | wiggle ]
 
-@mixin animate-attention($sub: all, $class: $default-animation-class-mode) {
+@mixin animate-attention(
+  $sub        : all,
+  $class      : $default-animation-class-mode,
+  $keyframes  : $default-keyframes-output
+) {
   $sub      : compact($sub);
   $flash    : yepnope($sub, all flash);
   $shake    : yepnope($sub, all shake);
@@ -22,11 +26,11 @@
   $wobble   : yepnope($sub, all wobble);
   $pulse    : yepnope($sub, all pulse);
   $wiggle   : yepnope($sub, all wiggle);
-  @if $flash    { @include animate-flash    ($class); } 
-  @if $shake    { @include animate-shake    ($class); } 
-  @if $tada     { @include animate-tada     ($class); } 
-  @if $swing    { @include animate-swing    ($class); } 
-  @if $wobble   { @include animate-wobble   ($class); } 
-  @if $pulse    { @include animate-pulse    ($class); } 
-  @if $wiggle   { @include animate-wiggle   ($class); } 
+  @if $flash    { @include animate-flash    ($class, $keyframes); }
+  @if $shake    { @include animate-shake    ($class, $keyframes); }
+  @if $tada     { @include animate-tada     ($class, $keyframes); }
+  @if $swing    { @include animate-swing    ($class, $keyframes); }
+  @if $wobble   { @include animate-wobble   ($class, $keyframes); }
+  @if $pulse    { @include animate-pulse    ($class, $keyframes); }
+  @if $wiggle   { @include animate-wiggle   ($class, $keyframes); }
 }

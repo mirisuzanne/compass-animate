@@ -7,10 +7,14 @@
 // ---------------------------------------------------------------------------
 // lightSpeed [ in | out | all ]
 
-@mixin animate-lightSpeed($sub: all, $class: $default-animation-class-mode) {
+@mixin animate-lightSpeed(
+  $sub        : all,
+  $class      : $default-animation-class-mode,
+  $keyframes  : $default-keyframes-output
+) {
   $sub  : compact($sub);
   $in   : yepnope($sub, all in);
   $out  : yepnope($sub, all out);
-  @if $in   { @include animate-lightSpeedIn   ($class); } 
-  @if $out  { @include animate-lightSpeedOut  ($class); } 
+  @if $in   { @include animate-lightSpeedIn   ($class, $keyframes); }
+  @if $out  { @include animate-lightSpeedOut  ($class, $keyframes); }
 }

@@ -8,16 +8,21 @@
 // ---------------------------------------------------------------------------
 // rollIn
 
-@mixin animate-rollIn($class: $default-animation-class-mode) {
+@mixin animate-rollIn(
+  $class      : $default-animation-class-mode,
+  $keyframes  : $default-keyframes-output
+) {
   $name: rollIn;
-  @include keyframes($name) {
-    0% {
-      @include opacity(0);
-      @include transform(translateX(-100%) rotate(-120deg)); 
-    }
-    100% {
-      @include opacity(1);
-      @include transform(translateX(0px) rotate(0deg));
+  @if $keyframes {
+    @include keyframes($name) {
+      0% {
+        @include opacity(0);
+        @include transform(translateX(-100%) rotate(-120deg));
+      }
+      100% {
+        @include opacity(1);
+        @include transform(translateX(0px) rotate(0deg));
+      }
     }
   }
   @include animation-class($name, $class) {}

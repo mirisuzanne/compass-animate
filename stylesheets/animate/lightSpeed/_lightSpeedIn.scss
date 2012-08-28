@@ -8,25 +8,30 @@
 // ---------------------------------------------------------------------------
 // lightSpeedIn
 
-@mixin animate-lightSpeedIn($class: $default-animation-class-mode) {
+@mixin animate-lightSpeedIn(
+  $class      : $default-animation-class-mode,
+  $keyframes  : $default-keyframes-output
+) {
   $name: lightSpeedIn;
-  @include keyframes($name) {
-    0% {
-      @include transform(translateX(100%) skewX(-30deg));
-      @include opacity(0); 
+  @if $keyframes {
+    @include keyframes($name) {
+      0% {
+        @include transform(translateX(100%) skewX(-30deg));
+        @include opacity(0);
+      }
+      60% {
+        @include transform(translateX(-20%) skewX(30deg));
+        @include opacity(1);
+      }
+      80% {
+        @include transform(translateX(0%) skewX(-15deg));
+        @include opacity(1);
+      }
+      100% {
+        @include transform(translateX(0%) skewX(0deg));
+        @include opacity(1);
+      }
     }
-    60% {
-      @include transform(translateX(-20%) skewX(30deg));
-      @include opacity(1); 
-    }
-    80% {
-      @include transform(translateX(0%) skewX(-15deg));
-      @include opacity(1); 
-    }
-    100% {
-      @include transform(translateX(0%) skewX(0deg));
-      @include opacity(1); 
-    } 
   }
   @include animation-class($name, $class) {}
 }

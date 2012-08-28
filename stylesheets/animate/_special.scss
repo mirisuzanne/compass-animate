@@ -6,8 +6,12 @@
 // ---------------------------------------------------------------------------
 // special [ hinge | all ]
 
-@mixin animate-special($sub: all, $class: $default-animation-class-mode) {
+@mixin animate-special(
+  $sub        : all,
+  $class      : $default-animation-class-mode,
+  $keyframes  : $default-keyframes-output
+) {
   $sub      : compact($sub);
   $hinge    : yepnope($sub, all hinge);
-  @if $hinge    { @include animate-hinge($class); } 
+  @if $hinge    { @include animate-hinge($class, $keyframes); }
 }

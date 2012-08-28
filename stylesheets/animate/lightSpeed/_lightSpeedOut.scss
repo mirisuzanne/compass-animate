@@ -8,17 +8,22 @@
 // ---------------------------------------------------------------------------
 // lightSpeedOut
 
-@mixin animate-lightSpeedOut($class: $default-animation-class-mode) {
+@mixin animate-lightSpeedOut(
+  $class      : $default-animation-class-mode,
+  $keyframes  : $default-keyframes-output
+) {
   $name: lightSpeedOut;
-  @include keyframes($name) {
-    0% {
-      @include transform(translateX(0%) skewX(0deg));
-      @include opacity(1); 
+  @if $keyframes {
+    @include keyframes($name) {
+      0% {
+        @include transform(translateX(0%) skewX(0deg));
+        @include opacity(1);
+      }
+      100% {
+        @include transform(translateX(100%) skewX(-30deg));
+        @include opacity(0);
+      }
     }
-    100% {
-      @include transform(translateX(100%) skewX(-30deg));
-      @include opacity(0); 
-    } 
   }
   @include animation-class($name, $class) {}
 }

@@ -7,11 +7,15 @@
 @import "bounce/bounceOut";
 
 // ---------------------------------------------------------------------------
-// bounce [ in | inUp | inDown | inLeft | inRight | 
+// bounce [ in | inUp | inDown | inLeft | inRight |
 //          out | outUp | outDown | outLeft | outRight |
 //          up | down | left | right | only | all ]
 
-@mixin animate-bounce($sub: all, $class: $default-animation-class-mode) {
+@mixin animate-bounce(
+  $sub        : all,
+  $class      : $default-animation-class-mode,
+  $keyframes  : $default-keyframes-output
+) {
   $sub      : compact($sub);
   $only     : yepnope($sub, all only);
   $in       : yepnope($sub, all in);
@@ -24,41 +28,43 @@
   $outDown  : yepnope($sub, all out outDown down);
   $outLeft  : yepnope($sub, all out outLeft left);
   $outRight : yepnope($sub, all out outRight right);
-  @if $in         { @include animate-bounceIn       ($class); }
-  @if $inUp       { @include animate-bounceInUp     ($class); }
-  @if $inDown     { @include animate-bounceInDown   ($class); }
-  @if $inLeft     { @include animate-bounceInLeft   ($class); }
-  @if $inRight    { @include animate-bounceInRight  ($class); }
-  @if $out        { @include animate-bounceOut      ($class); }
-  @if $outUp      { @include animate-bounceOutUp    ($class); }
-  @if $outDown    { @include animate-bounceOutDown  ($class); }
-  @if $outLeft    { @include animate-bounceOutLeft  ($class); }
-  @if $outRight   { @include animate-bounceOutRight ($class); }
+  @if $in         { @include animate-bounceIn       ($class, $keyframes); }
+  @if $inUp       { @include animate-bounceInUp     ($class, $keyframes); }
+  @if $inDown     { @include animate-bounceInDown   ($class, $keyframes); }
+  @if $inLeft     { @include animate-bounceInLeft   ($class, $keyframes); }
+  @if $inRight    { @include animate-bounceInRight  ($class, $keyframes); }
+  @if $out        { @include animate-bounceOut      ($class, $keyframes); }
+  @if $outUp      { @include animate-bounceOutUp    ($class, $keyframes); }
+  @if $outDown    { @include animate-bounceOutDown  ($class, $keyframes); }
+  @if $outLeft    { @include animate-bounceOutLeft  ($class, $keyframes); }
+  @if $outRight   { @include animate-bounceOutRight ($class, $keyframes); }
 
   $name: bounce;
-  @if $only {  
-    @include keyframes($name) {
-      0% {
-        @include translateY(0); 
+  @if $only {
+    @if $keyframes {
+      @include keyframes($name) {
+        0% {
+          @include translateY(0);
+        }
+        20% {
+          @include translateY(0);
+        }
+        40% {
+          @include translateY(-30px);
+        }
+        50% {
+          @include translateY(0);
+        }
+        60% {
+          @include translateY(-15px);
+        }
+        80% {
+          @include translateY(0);
+        }
+        100% {
+          @include translateY(0);
+        }
       }
-      20% {
-        @include translateY(0); 
-      }
-      40% {
-        @include translateY(-30px); 
-      }
-      50% {
-        @include translateY(0); 
-      }
-      60% {
-        @include translateY(-15px); 
-      }
-      80% {
-        @include translateY(0); 
-      }
-      100% {
-        @include translateY(0); 
-      } 
     }
     @include animation-class($name, $class) {}
   }

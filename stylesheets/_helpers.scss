@@ -1,7 +1,11 @@
 // ---------------------------------------------------------------------------
-// animation class mode: true | false | silent
+// settings
 
+// animation class mode: true | false | silent
 $default-animation-class-mode: silent !default;
+
+// keyframes output: true | false
+$default-keyframes-output: true;
 
 // ---------------------------------------------------------------------------
 // animated class for external use
@@ -16,10 +20,10 @@ $default-animation-class-mode: silent !default;
 @mixin animation-class($name, $class: $default-animation-class-mode) {
   $selector: if($class == 'silent', '%', '.') + $name;
   @if $class {
-    #{$selector} { 
-      @include animation-name($name); 
+    #{$selector} {
+      @include animation-name($name);
       @content;
-    } 
+    }
   }
 }
 
@@ -31,7 +35,7 @@ $default-animation-class-mode: silent !default;
   $list     : compact($list);
   $return   : false;
   @each $arg in $args {
-    $return: if(index($list,$arg), true, $return); 
+    $return: if(index($list,$arg), true, $return);
   }
-  @return $return; 
+  @return $return;
 }

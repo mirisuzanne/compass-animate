@@ -7,10 +7,14 @@
 // ---------------------------------------------------------------------------
 // roll [ in | out | all ]
 
-@mixin animate-roll($sub: all, $class: $default-animation-class-mode) {
+@mixin animate-roll(
+  $sub        : all,
+  $class      : $default-animation-class-mode,
+  $keyframes  : $default-keyframes-output
+) {
   $sub  : compact($sub);
   $in   : yepnope($sub, all in);
   $out  : yepnope($sub, all out);
-  @if $in   { @include animate-rollIn   ($class); } 
-  @if $out  { @include animate-rollOut  ($class); } 
+  @if $in   { @include animate-rollIn   ($class, $keyframes); }
+  @if $out  { @include animate-rollOut  ($class, $keyframes); }
 }

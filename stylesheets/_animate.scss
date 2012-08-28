@@ -22,7 +22,8 @@
 
 @mixin animate(
   $sub        : all,
-  $class      : $default-animation-class-mode
+  $class      : $default-animation-class-mode,
+  $keyframes  : $default-keyframes-output
 ) {
   $sub        : compact($sub);
   $attention  : yepnope($sub, all attention);
@@ -33,13 +34,13 @@
   $roll       : yepnope($sub, all roll);
   $rotate     : yepnope($sub, all rotate);
   $special    : yepnope($sub, all special);
-  @if $attention  { @include animate-attention  (all, $class); }
-  @if $bounce     { @include animate-bounce     (all, $class); }
-  @if $fade       { @include animate-fade       (all, $class); }
-  @if $flip       { @include animate-flip       (all, $class); }
-  @if $lightSpeed { @include animate-lightSpeed (all, $class); }
-  @if $roll       { @include animate-roll       (all, $class); }
-  @if $rotate     { @include animate-rotate     (all, $class); }
-  @if $special    { @include animate-special    (all, $class); }
+  @if $attention  { @include animate-attention  (all, $class, $keyframes); }
+  @if $bounce     { @include animate-bounce     (all, $class, $keyframes); }
+  @if $fade       { @include animate-fade       (all, $class, $keyframes); }
+  @if $flip       { @include animate-flip       (all, $class, $keyframes); }
+  @if $lightSpeed { @include animate-lightSpeed (all, $class, $keyframes); }
+  @if $roll       { @include animate-roll       (all, $class, $keyframes); }
+  @if $rotate     { @include animate-rotate     (all, $class, $keyframes); }
+  @if $special    { @include animate-special    (all, $class, $keyframes); }
 }
 
