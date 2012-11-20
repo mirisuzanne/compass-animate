@@ -30,7 +30,7 @@ gem install animate --pre
 
 ```ruby
 # config.rb
-@require "animate"
+require "animate"
 ```
 
 ```scss
