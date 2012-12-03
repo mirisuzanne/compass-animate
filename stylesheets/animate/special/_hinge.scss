@@ -44,6 +44,6 @@
 
   @include animation-class($name, $class) {
     $selector: if($class == 'silent', '%animated', '.animated');
-    &#{$selector} { @include animation(2s ease both); }
+    &#{$selector} { @include animation($name 2s ease both); }
   }
 }
