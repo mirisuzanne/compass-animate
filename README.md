@@ -197,3 +197,8 @@ This plugin includes the following _mixins_ & animations:
 **Special**
 - _special_
 - hinge
+
+**Slide**
+- _slide_
+- slideInDown, slideInLeft, slideInRight
+- slideOutUp, slideOutLeft, slideOutRight
