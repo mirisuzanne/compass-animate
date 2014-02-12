@@ -1,0 +1,66 @@
+// ---------------------------------------------------------------------------
+// imports
+
+@import "compass/css3/animation";
+@import "compass/css3/transform";
+@import "compass/css3/opacity";
+
+// ---------------------------------------------------------------------------
+// fadeIn
+
+@mixin animate-slideOutUp(
+  $class      : $default-animation-class-mode,
+  $keyframes  : $default-keyframes-output
+) {
+  $name: slideOutUp;
+  @if $keyframes {
+    @include keyframes($name) {
+      0% {
+        opacity: 0;
+        @include translateY(0);  
+      }
+      100% {
+        @include translateY(-2000px);
+      }
+    }
+  }
+  @include animation-class($name, $class) {}
+}
+
+@mixin animate-slideOutLeft(
+  $class      : $default-animation-class-mode,
+  $keyframes  : $default-keyframes-output
+) {
+  $name: slideOutLeft;
+  @if $keyframes {
+    @include keyframes($name) {
+      0% {
+        opacity: 0;
+        @include translateX(0);  
+      }
+      100% {
+        @include translateX(-2000px);
+      }
+    }
+  }
+  @include animation-class($name, $class) {}
+}
+
+@mixin animate-slideOutRight(
+  $class      : $default-animation-class-mode,
+  $keyframes  : $default-keyframes-output
+) {
+  $name: slideOutRight;
+  @if $keyframes {
+    @include keyframes($name) {
+      0% {
+        opacity: 0;
+        @include translateX(0);  
+      }
+      100% {
+        @include translateX(2000px);
+      }
+    }
+  }
+  @include animation-class($name, $class) {}
+}

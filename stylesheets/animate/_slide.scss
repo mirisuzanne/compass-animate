@@ -1,0 +1,32 @@
+// ---------------------------------------------------------------------------
+// imports
+
+@import "slide/slideIn";
+@import "slide/slideOut";
+
+// ---------------------------------------------------------------------------
+// slide [ in | inDown | inDown | inLeft | inRight |
+//         out | outUp | outLeft | outRight |
+//         left | right | up | down | all ]
+
+@mixin animate-slide(
+  $sub        : all,
+  $class      : $default-animation-class-mode,
+  $keyframes  : $default-keyframes-output
+) {
+  $sub      : compact($sub);
+  $inDown   : yepnope($sub, all in inDown down);
+  $inLeft   : yepnope($sub, all in inLeft left);
+  $inRight  : yepnope($sub, all in inRight right);
+  $outUp    : yepnope($sub, all out outUp up);
+  $outLeft  : yepnope($sub, all out outLeft left);
+  $outRight : yepnope($sub, all out outRight right);
+  
+  @if $inDown   { @include animate-slideInDown   ($class, $keyframes); }
+  @if $inLeft   { @include animate-slideInLeft   ($class, $keyframes); }
+  @if $inRight  { @include animate-slideInRight  ($class, $keyframes); }
+
+  @if $outUp    { @include animate-slideOutUp    ($class, $keyframes); }
+  @if $outLeft  { @include animate-slideOutLeft  ($class, $keyframes); }
+  @if $outRight { @include animate-slideOutRight ($class, $keyframes); }
+}
