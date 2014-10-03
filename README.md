@@ -1,10 +1,6 @@
-**Note:** This is still fairly new. All the core mixins and animations work,
-but I don't promise the same for all the shortcuts,
-and I know the documentation could use work.
-If you run into any problems, please file and issue.
-Even better, fix it and file a pull request.
-
-Thanks!
+*I'm no longer actively maintaining this project.
+If you use it and want to take over maintenance, 
+[let me know](https://github.com/ericam/compass-animate/issues/16)!*
 
 Compass Animate
 ===============
