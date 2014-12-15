@@ -198,3 +198,8 @@ This plugin includes the following _mixins_ & animations:
 - _slide_
 - slideInDown, slideInLeft, slideInRight
 - slideOutUp, slideOutLeft, slideOutRight
+
+**Zoom**
+- _zoom_
+- zoomIn, zoomInDown, zoomInLeft, zoomInRight, zoomInUp
+- zoomOut, zoomOutDown, zoomOutLeft, zoomOutRight, zoomOutUp
