@@ -2,7 +2,7 @@
 // imports
 
 @import "zoom/zoomIn";
-// @import "zoom/zoomOut";
+@import "zoom/zoomOut";
 
 
 // ---------------------------------------------------------------------------
@@ -22,6 +22,7 @@
   $inRight  : yepnope($sub, all in inRight);
   $inUp     : yepnope($sub, all in inUp);
 
+  $out-only : yepnope($sub, all in out-only);
   $outDown  : yepnope($sub, all out outDown);
   $outLeft  : yepnope($sub, all out outLeft);
   $outRight : yepnope($sub, all out outRight);
@@ -33,8 +34,9 @@
   @if $inRight { @include animate-zoomInRight   ($class, $keyframes); }
   @if $inUp    { @include animate-zoomInUp      ($class, $keyframes); }
 
-  // @if $outDown  { @include animate-zoomOutDown    ($class, $keyframes); }
-  // @if $outLeft  { @include animate-zoomOutLeft    ($class, $keyframes); }
-  // @if $outRight { @include animate-zoomOutRight   ($class, $keyframes); }
-  // @if $outUp    { @include animate-zoomOutUp      ($class, $keyframes); }
+  @if $out-only { @include animate-zoomOut        (only, $class, $keyframes); }
+  @if $outDown  { @include animate-zoomOutDown    ($class, $keyframes); }
+  @if $outLeft  { @include animate-zoomOutLeft    ($class, $keyframes); }
+  @if $outRight { @include animate-zoomOutRight   ($class, $keyframes); }
+  @if $outUp    { @include animate-zoomOutUp      ($class, $keyframes); }
 }
