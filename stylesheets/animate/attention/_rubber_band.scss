@@ -1,0 +1,47 @@
+// ---------------------------------------------------------------------------
+// imports
+
+@import "compass/css3/animation";
+@import "compass/css3/transform";
+
+// ---------------------------------------------------------------------------
+// rubberBand
+
+@mixin animate-rubberBand(
+  $class      : $default-animation-class-mode,
+  $keyframes  : $default-keyframes-output
+) {
+  $name: rubberBand;
+  @if $keyframes {
+    @include keyframes($name) {
+      0% {
+        @include scale3d(1, 1, 1);
+      }
+
+      30% {
+        @include scale3d(1.25, 0.75, 1);
+      }
+
+      40% {
+        @include scale3d(0.75, 1.25, 1);
+      }
+
+      50% {
+        @include scale3d(1.15, 0.85, 1);
+      }
+
+      65% {
+        @include scale3d(.95, 1.05, 1);
+      }
+
+      75% {
+        @include scale3d(1.05, .95, 1);
+      }
+
+      100% {
+        @include scale3d(1, 1, 1);
+      }
+    }
+  }
+  @include animation-class($name, $class) {}
+}

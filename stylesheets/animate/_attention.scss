@@ -8,10 +8,11 @@
 @import "attention/wobble";
 @import "attention/pulse";
 @import "attention/wiggle";
+@import "attention/rubber_band";
 
 // ---------------------------------------------------------------------------
 // attention [ flash | shake | tada |
-//             swing | wobble | pulse | wiggle ]
+//             swing | wobble | pulse | wiggle | rubberBand ]
 
 @mixin animate-attention(
   $sub        : all,
@@ -26,6 +27,7 @@
   $wobble   : yepnope($sub, all wobble);
   $pulse    : yepnope($sub, all pulse);
   $wiggle   : yepnope($sub, all wiggle);
+  $rubberBand   : yepnope($sub, all rubberBand);
   @if $flash    { @include animate-flash    ($class, $keyframes); }
   @if $shake    { @include animate-shake    ($class, $keyframes); }
   @if $tada     { @include animate-tada     ($class, $keyframes); }
@@ -33,4 +35,5 @@
   @if $wobble   { @include animate-wobble   ($class, $keyframes); }
   @if $pulse    { @include animate-pulse    ($class, $keyframes); }
   @if $wiggle   { @include animate-wiggle   ($class, $keyframes); }
+  @if $rubberBand   { @include animate-rubberBand   ($class, $keyframes); }
 }

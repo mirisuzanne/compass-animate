@@ -1,0 +1,139 @@
+// ---------------------------------------------------------------------------
+// imports
+
+@import "compass/css3/animation";
+@import "compass/css3/transform";
+@import "compass/css3/transition";
+@import "compass/css3/opacity";
+
+@mixin animate-zoomOut(
+  $sub        : all,
+  $class      : $default-animation-class-mode,
+  $keyframes  : $default-keyframes-output
+) {
+  $sub        : compact($sub);
+  $only       : yepnope($sub, all only);
+
+  $down   : yepnope($sub, all out outDown);
+  $left   : yepnope($sub, all out outLeft);
+  $right  : yepnope($sub, all out outRight);
+  $up     : yepnope($sub, all out outUp);
+
+  @if $down  { @include animate-zoomOutDown    ($class, $keyframes); }
+  @if $left  { @include animate-zoomOutLeft    ($class, $keyframes); }
+  @if $right { @include animate-zoomOutRight   ($class, $keyframes); }
+  @if $up    { @include animate-zoomOutUp      ($class, $keyframes); }
+
+  $name: zoomOut;
+  @if $only {
+    @if $keyframes {
+      @include keyframes($name) {
+        0% {
+          @include opacity(1);
+        }
+
+        50% {
+          @include opacity(0);
+          @include scale3d(.3, .3, .3);
+        }
+
+        100% {
+          @include opacity(0);
+        }
+      }
+    }
+    @include animation-class($name, $class) {}
+  }
+}
+
+@mixin animate-zoomOutDown(
+  $class      : $default-animation-class-mode,
+  $keyframes  : $default-keyframes-output
+) {
+  $name: zoomOutDown;
+  @if $keyframes {
+    @include keyframes($name) {
+      40% {
+        @include opacity(1);
+        @include transform(scale3d(.475, .475, .475) translate3d(0, -60px, 0));
+        @include animation-timing-function(cubic-bezier(0.550, 0.055, 0.675, 0.190));
+      }
+
+      100% {
+        @include opacity(0);
+        @include transform(scale3d(.1, .1, .1) translate3d(0, 2000px, 0));
+        @include transform-origin(center bottom);
+        @include animation-timing-function(cubic-bezier(0.175, 0.885, 0.320, 1));
+      }
+    }
+  }
+  @include animation-class($name, $class) {}
+}
+
+@mixin animate-zoomOutLeft(
+  $class      : $default-animation-class-mode,
+  $keyframes  : $default-keyframes-output
+) {
+  $name: zoomOutLeft;
+  @if $keyframes {
+    @include keyframes($name) {
+      40% {
+        @include opacity(1);
+        @include transform(scale3d(.475, .475, .475) translate3d(42px, 0, 0));
+      }
+
+      100% {
+        @include opacity(0);
+        @include transform(scale(.1) translate3d(-2000px, 0, 0));
+        @include transform-origin(left center);
+      }
+    }
+  }
+  @include animation-class($name, $class) {}
+}
+
+@mixin animate-zoomOutRight(
+  $class      : $default-animation-class-mode,
+  $keyframes  : $default-keyframes-output
+) {
+  $name: zoomOutRight;
+  @if $keyframes {
+    @include keyframes($name) {
+      40% {
+        @include opacity(1);
+        @include transform(scale3d(.475, .475, .475) translate3d(-42px, 0, 0));
+      }
+
+      100% {
+        @include opacity(0);
+        @include transform(scale(.1) translate3d(2000px, 0, 0));
+        @include transform-origin(right center);
+      }
+    }
+  }
+  @include animation-class($name, $class) {}
+}
+
+@mixin animate-zoomOutUp(
+  $class      : $default-animation-class-mode,
+  $keyframes  : $default-keyframes-output
+) {
+  $name: zoomOutUp;
+  @if $keyframes {
+    @include keyframes($name) {
+      40% {
+        @include opacity(1);
+        @include transform(scale3d(.475, .475, .475) translate3d(0, 60px, 0));
+        @include animation-timing-function(cubic-bezier(0.550, 0.055, 0.675, 0.190));
+      }
+
+      100% {
+        @include opacity(0);
+        @include transform(scale3d(.1, .1, .1) translate3d(0, -2000px, 0));
+        @include transform-origin(center bottom);
+        @include animation-timing-function(cubic-bezier(0.175, 0.885, 0.320, 1));
+      }
+    }
+  }
+  @include animation-class($name, $class) {}
+}

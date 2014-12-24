@@ -1,5 +1,5 @@
 *I'm no longer actively maintaining this project.
-If you use it and want to take over maintenance, 
+If you use it and want to take over maintenance,
 [let me know](https://github.com/ericam/compass-animate/issues/16)!*
 
 Compass Animate
@@ -154,7 +154,7 @@ This plugin includes the following _mixins_ & animations:
 
 **Attention**
 - _attention_
-- flash, bounce, shake, tada, swing, wobble, wiggle, pulse
+- flash, bounce, shake, tada, swing, wobble, wiggle, pulse, rubberBand
 
 **Flip** (currently Webkit, Firefox, & IE10 only)
 - flip, _flipX_, _flipY_
@@ -198,3 +198,8 @@ This plugin includes the following _mixins_ & animations:
 - _slide_
 - slideInDown, slideInLeft, slideInRight
 - slideOutUp, slideOutLeft, slideOutRight
+
+**Zoom**
+- _zoom_
+- zoomIn, zoomInDown, zoomInLeft, zoomInRight, zoomInUp
+- zoomOut, zoomOutDown, zoomOutLeft, zoomOutRight, zoomOutUp

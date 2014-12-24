@@ -16,6 +16,7 @@
 @import "animate/rotate";
 @import "animate/slide";
 @import "animate/special";
+@import "animate/zoom";
 
 // ---------------------------------------------------------------------------
 // animate [ attention | bounce | fade | flip |
@@ -35,6 +36,7 @@
   $roll       : yepnope($sub, all roll);
   $rotate     : yepnope($sub, all rotate);
   $special    : yepnope($sub, all special);
+  $zoom       : yepnope($sub, all zoom);
   @if $attention  { @include animate-attention  (all, $class, $keyframes); }
   @if $bounce     { @include animate-bounce     (all, $class, $keyframes); }
   @if $fade       { @include animate-fade       (all, $class, $keyframes); }
@@ -43,5 +45,6 @@
   @if $roll       { @include animate-roll       (all, $class, $keyframes); }
   @if $rotate     { @include animate-rotate     (all, $class, $keyframes); }
   @if $special    { @include animate-special    (all, $class, $keyframes); }
+  @if $zoom       { @include animate-zoom       (all, $class, $keyframes); }
 }
 

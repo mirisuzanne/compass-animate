@@ -1,0 +1,42 @@
+// ---------------------------------------------------------------------------
+// imports
+
+@import "zoom/zoomIn";
+@import "zoom/zoomOut";
+
+
+// ---------------------------------------------------------------------------
+// zoom [ in  | InDown | InLeft | InRight | InUp
+//      | Out | OutDown| OutLeft| OutRight| OutUp ]
+
+@mixin animate-zoom(
+  $sub        : all,
+  $class      : $default-animation-class-mode,
+  $keyframes  : $default-keyframes-output
+) {
+  $sub          : compact($sub);
+
+  $in-only  : yepnope($sub, all in in-only);
+  $inDown   : yepnope($sub, all in inDown);
+  $inLeft   : yepnope($sub, all in inLeft);
+  $inRight  : yepnope($sub, all in inRight);
+  $inUp     : yepnope($sub, all in inUp);
+
+  $out-only : yepnope($sub, all in out-only);
+  $outDown  : yepnope($sub, all out outDown);
+  $outLeft  : yepnope($sub, all out outLeft);
+  $outRight : yepnope($sub, all out outRight);
+  $outUp    : yepnope($sub, all out outUp);
+
+  @if $in-only { @include animate-zoomIn        (only, $class, $keyframes); }
+  @if $inDown  { @include animate-zoomInDown    ($class, $keyframes); }
+  @if $inLeft  { @include animate-zoomInLeft    ($class, $keyframes); }
+  @if $inRight { @include animate-zoomInRight   ($class, $keyframes); }
+  @if $inUp    { @include animate-zoomInUp      ($class, $keyframes); }
+
+  @if $out-only { @include animate-zoomOut        (only, $class, $keyframes); }
+  @if $outDown  { @include animate-zoomOutDown    ($class, $keyframes); }
+  @if $outLeft  { @include animate-zoomOutLeft    ($class, $keyframes); }
+  @if $outRight { @include animate-zoomOutRight   ($class, $keyframes); }
+  @if $outUp    { @include animate-zoomOutUp      ($class, $keyframes); }
+}
