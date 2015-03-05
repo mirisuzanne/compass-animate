@@ -1,7 +1,3 @@
-*I'm no longer actively maintaining this project.
-If you use it and want to take over maintenance,
-[let me know](https://github.com/ericam/compass-animate/issues/16)!*
-
 Compass Animate
 ===============
 
