@@ -2,7 +2,7 @@ Compass Animate
 ===============
 
 This is the new home for
-Eric Meyer's Compass port of
+the Compass port of
 [animate.css][animate]
 by [Dan Eden][dan].
 It is splitting off from
